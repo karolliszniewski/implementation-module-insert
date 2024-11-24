@@ -121,6 +121,28 @@ $isGroupBySection = $block->isGroupBySection();
 </page>
 ```
 
+or
+
+```xml
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Dodanie klasy CSS do kontenera -->
+        <referenceContainer name="header.panel.wrapper" htmlClass="panel wrapper top_glass" />
+        
+        <!-- Dodanie klasy CSS do innego kontenera -->
+        <referenceContainer name="header-wrapper" htmlClass="header content-anime">
+            <!-- Dodanie bloku z szablonem -->
+            <block class="Magento\Framework\View\Element\Template" name="custom.account.block" template="Magento_Theme::account.phtml" />
+        </referenceContainer>
+        
+        <!-- Dodanie bloku wewnątrz Magento\Theme\Block\Html\Title -->
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Framework\View\Element\Template" name="custom.widget.block" template="Magento_Theme::widget.phtml" />
+        </referenceBlock>
+    </body>
+</page>
+```
 
 ```phtml
 <?php
